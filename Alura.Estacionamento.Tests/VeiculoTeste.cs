@@ -10,6 +10,7 @@ namespace Alura.Estacionamento.Tests
     {
         public ITestOutputHelper Output { get; }
         private Veiculo veiculo;
+        private Operador Operador;
 
         public VeiculoTeste(ITestOutputHelper output)
         {
@@ -17,6 +18,9 @@ namespace Alura.Estacionamento.Tests
             Output.WriteLine("Execução do  construtor.");
             veiculo = new Veiculo();
             veiculo.Tipo = TipoVeiculo.Automovel;
+
+            Operador = new Operador();
+            Operador.Nome = "Marcos";
         }
 
         [Fact/*(DisplayName = "Teste n°1")*/]
@@ -59,6 +63,10 @@ namespace Alura.Estacionamento.Tests
             //Arrange
 
             Patio estacionamento = new Patio();
+            var operador = new Operador();
+            operador.Nome = "Marcos";
+            estacionamento.OperadorPatio = operador;
+
             var veiculo = new Veiculo();
             veiculo.Proprietario = "José Silva";
             veiculo.Tipo = TipoVeiculo.Automovel;
